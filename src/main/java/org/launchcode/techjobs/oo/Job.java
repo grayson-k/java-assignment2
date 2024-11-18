@@ -13,10 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
-
     public Job() {
         id = nextId;
         nextId++;
@@ -30,9 +26,6 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
 
     @Override
     public boolean equals(Object o) {
@@ -54,10 +47,10 @@ public class Job {
         return newline +
                 "ID: " + id + newline +
                 "Name: " + (name == null || name.isEmpty() ? "Data not available" : name) + newline +
-                "Employer: " + (employer == null || employer.getValue().isEmpty() ? "Data not available" : employer.getValue()) + newline +
-                "Location: " + (location == null || location.getValue().isEmpty() ? "Data not available" : location.getValue()) + newline +
-                "Position Type: " + (positionType == null || positionType.getValue().isEmpty() ? "Data not available" : positionType.getValue()) + newline +
-                "Core Competency: " + (coreCompetency == null || coreCompetency.getValue().isEmpty() ? "Data not available" : coreCompetency.getValue()) + newline;
+                "Employer: " + (employer == null || employer.toString().isEmpty() ? "Data not available" : employer) + newline +
+                "Location: " + (location == null || location.toString().isEmpty() ? "Data not available" : location) + newline +
+                "Position Type: " + (positionType == null || positionType.toString().isEmpty() ? "Data not available" : positionType) + newline +
+                "Core Competency: " + (coreCompetency == null || coreCompetency.toString().isEmpty() ? "Data not available" : coreCompetency) + newline;
     }
 
 
