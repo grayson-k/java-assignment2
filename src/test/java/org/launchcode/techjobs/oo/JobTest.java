@@ -47,4 +47,39 @@ public class JobTest {
 
         assertFalse(job1.equals(job2));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job testjob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(System.lineSeparator(), testjob.toString().substring(0,1));
+        assertEquals(System.lineSeparator(), testjob.toString().substring(testjob.toString().length() - 1));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job testjob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expected = "ID: " + testjob.getId() + System.lineSeparator() +
+                "Name: " + testjob.getName() + System.lineSeparator() +
+                "Employer: " + testjob.getEmployer() + System.lineSeparator() +
+                "Location: " + testjob.getLocation() + System.lineSeparator() +
+                "Position Type: " + testjob.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + testjob.getCoreCompetency();
+
+        assertEquals(expected, testjob.toString().substring(1, testjob.toString().length() - 1));
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job testjob = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expected = "ID: " + testjob.getId() + System.lineSeparator() +
+                "Name: " + testjob.getName() + System.lineSeparator() +
+                "Employer: " + "Data not available" + System.lineSeparator() +
+                "Location: " + testjob.getLocation() + System.lineSeparator() +
+                "Position Type: " + testjob.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + testjob.getCoreCompetency();
+
+        assertEquals(expected, testjob.toString().substring(1, testjob.toString().length() - 1));
+
+    }
 }
