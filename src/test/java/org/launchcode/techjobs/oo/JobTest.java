@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class JobTest {
-    //TODO: Create your unit tests here
 
     @Test
     public void testSettingJobId() {

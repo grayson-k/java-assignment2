@@ -53,10 +53,6 @@ public class Job {
                 "Core Competency: " + (coreCompetency == null || coreCompetency.toString().isEmpty() ? "Data not available" : coreCompetency) + newline;
     }
 
-
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
-
     public int getId() {
         return id;
     }
